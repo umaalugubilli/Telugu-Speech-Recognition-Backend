@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/header :: head"></head>
+<body>
+    <header th:replace="fragments/navigation :: nav"></header>
+    <div class="container">
+        <h1 class="text-center mb-4">Speech Calculator</h1>
+
+        <form id="calculator-form" method="post" action="/api/calculator" enctype="multipart/form-data">
+            <div class="mb-3 file-input-group">
+                <label for="file1" class="form-label">File 1:</label>
+                <input type="file" class="form-control" id="file1" name="file1" accept=".wav" required>
+            </div>
+
+            <div class="mb-3 file-input-group">
+                <label for="file2" class="form-label">File 2:</label>
+                <input type="file" class="form-control" id="file2" name="file2" accept=".wav" required>
+            </div>
+            
+            <div class="d-flex justify-content-center mb-3">
+                <button type="button" class="mic-button" id="mic1"><i class="fas fa-microphone"></i></button>
+            </div>
+
+            <div class="d-flex justify-content-center mb-3">
+                <button type="button" class="btn btn-operation btn-primary" data-operation="add" value="add">+</button>
+                <button type="button" class="btn btn-operation btn-primary" data-operation="sub" value="sub">-</button>
+                <button type="button" class="btn btn-operation btn-primary" data-operation="mul" value="mul">&times;</button>
+                <button type="button" class="btn btn-operation btn-primary" data-operation="div" value="div">&divide;</button>
+                <input type="hidden" id="operation" name="operation"> <!-- Hidden input for selected operation -->
+                <button type="submit" class="btn btn-success btn-equals">=</button>
+            </div>
+        </form>
+
+        <div id="result-box">Result will be shown here</div>
+    </div>
+    <footer th:replace="fragments/footer :: footer"></footer>
+</body>
+</html>
