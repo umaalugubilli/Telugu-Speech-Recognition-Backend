@@ -5,18 +5,18 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
-public class WelcomeController {
+public class HomeController {
 	
-	@GetMapping("/calculate")
+	@GetMapping("/")
 	public String gotoWelcomePage(Model model) {
 		//model.addAttribute("pageTitle", "Speech Recognition Calculator");
-		return "calculator";
+		return "prediction";
 	}
 
 	
-	@GetMapping("/predict")
+	@GetMapping("/calculator")
 	public String gotoPredictionPage() {
-		return "prediction";
+		return "calculator";
 	}
 	
 	

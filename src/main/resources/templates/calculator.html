@@ -1,38 +1,78 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="fragments/header :: head"></head>
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Speech Recognition Calculator</title>
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+	crossorigin="anonymous">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<link rel="stylesheet" th:href="@{css/calculator/calculator.css}"
+	href="css/calculator/calculator.css">
+</head>
+
 <body>
-    <header th:replace="fragments/navigation :: nav"></header>
-    <div class="container">
-        <h1 class="text-center mb-4">Speech Calculator</h1>
+	<!-- Navigation Bar -->
+	<div th:replace="~{fragments/navigation :: nav}"></div>
+	<div class="container">
+		<h1 class="text-center mb-4">Speech Calculator</h1>
 
-        <form id="calculator-form" method="post" action="/api/calculator" enctype="multipart/form-data">
-            <div class="mb-3 file-input-group">
-                <label for="file1" class="form-label">File 1:</label>
-                <input type="file" class="form-control" id="file1" name="file1" accept=".wav" required>
-            </div>
+		<form id="calculator-form" method="post" action="/api/calculator"
+			enctype="multipart/form-data">
+			<div class="mb-3 file-input-group">
+				<label for="file1" class="form-label">File 1:</label> <input
+					type="file" class="form-control" id="file1" name="file1"
+					accept=".wav" required>
+			</div>
 
-            <div class="mb-3 file-input-group">
-                <label for="file2" class="form-label">File 2:</label>
-                <input type="file" class="form-control" id="file2" name="file2" accept=".wav" required>
-            </div>
-            
-            <div class="d-flex justify-content-center mb-3">
-                <button type="button" class="mic-button" id="mic1"><i class="fas fa-microphone"></i></button>
-            </div>
+			<div class="mb-3 file-input-group">
+				<label for="file2" class="form-label">File 2:</label> <input
+					type="file" class="form-control" id="file2" name="file2"
+					accept=".wav" required>
+			</div>
 
-            <div class="d-flex justify-content-center mb-3">
-                <button type="button" class="btn btn-operation btn-primary" data-operation="add" value="add">+</button>
-                <button type="button" class="btn btn-operation btn-primary" data-operation="sub" value="sub">-</button>
-                <button type="button" class="btn btn-operation btn-primary" data-operation="mul" value="mul">&times;</button>
-                <button type="button" class="btn btn-operation btn-primary" data-operation="div" value="div">&divide;</button>
-                <input type="hidden" id="operation" name="operation"> <!-- Hidden input for selected operation -->
-                <button type="submit" class="btn btn-success btn-equals">=</button>
-            </div>
-        </form>
+			<div class="d-flex justify-content-center mb-3">
+				<button type="button" class="mic-button" id="mic-button">
+					<i class="fas fa-microphone"></i>
+				</button>
+			</div>
 
-        <div id="result-box">Result will be shown here</div>
-    </div>
-    <footer th:replace="fragments/footer :: footer"></footer>
+			<div class="d-flex justify-content-center mb-3">
+				<button type="button" class="btn btn-operation btn-primary"
+					data-operation="add" value="add">+</button>
+				<button type="button" class="btn btn-operation btn-primary"
+					data-operation="sub" value="sub">-</button>
+				<button type="button" class="btn btn-operation btn-primary"
+					data-operation="mul" value="mul">&times;</button>	
+				<button type="button" class="btn btn-operation btn-primary"
+					data-operation="div" value="div">&divide;</button>
+				<input type="hidden" id="operation" name="operation">
+				<!-- Hidden input for selected operation -->
+				<button type="submit" class="btn btn-success btn-equals">=</button>
+			</div>
+
+			<!-- <input type="hidden" id="operation" name="operation"> <!-- Hidden input for selected operation
+
+        <div class="d-flex justify-content-center">
+            <button type="submit" class="btn btn-success btn-equals">=</button>
+        </div>-->
+		</form>
+
+		<div id="result-box">Result will be shown here</div>
+	</div>
+
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+		crossorigin="anonymous"></script>
+		
+	<script th:src="@{js/calculator/calculator.js}"></script>
 </body>
+
 </html>
