@@ -1,7 +1,6 @@
 package com.mahesh.projects.telugu_speech_recognition_backend.controller;
 
 import java.io.IOException;
-import java.lang.System.Logger;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -9,17 +8,16 @@ import java.nio.file.StandardCopyOption;
 import java.util.Map;
 import java.util.UUID;
 
-
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.mahesh.projects.telugu_speech_recognition_backend.service.SpeechRecognitionService;
 
-@Controller
+@RestController
 public class CalculatorController {
 	
 	private SpeechRecognitionService speechRecognitionService;

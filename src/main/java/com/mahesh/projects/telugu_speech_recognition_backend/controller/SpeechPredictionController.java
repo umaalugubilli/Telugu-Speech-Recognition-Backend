@@ -9,19 +9,19 @@ import java.util.Map;
 import java.util.UUID;
 
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.mahesh.projects.telugu_speech_recognition_backend.service.SpeechRecognitionService;
 
-@Controller
-public class SpeechController {
+@RestController
+public class SpeechPredictionController {
 	
 	private SpeechRecognitionService speechRecognitionService;
 	
-	public SpeechController(SpeechRecognitionService speechRecognitionService) {
+	public SpeechPredictionController(SpeechRecognitionService speechRecognitionService) {
 		super();
 		this.speechRecognitionService = speechRecognitionService;
 	}
